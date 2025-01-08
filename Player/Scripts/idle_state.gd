@@ -1,6 +1,7 @@
 class_name IdleState extends State
 
 @onready var walk: WalkState = $"../Walk"
+@onready var attack: AttackState = $"../Attack"
 
 ## What happends on enter state
 func enter_state() -> void:
@@ -21,4 +22,5 @@ func update_physics(_delta:float) -> State:
 	return null
 	
 func handle_input(_event:InputEvent) ->State:
+	if(_event.is_action_pressed("attack")) : return attack
 	return null

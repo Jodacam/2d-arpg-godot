@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwbwvy5rn6f2x"
+path="res://.godot/imported/Sword Drop.mp3-aac0efd6f3432faff92ff5c92c1cef94.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Impacts/Sword Drop.mp3"
+dest_files=["res://.godot/imported/Sword Drop.mp3-aac0efd6f3432faff92ff5c92c1cef94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck22epe6ps3py"
+path="res://.godot/imported/Sword 3.mp3-39edd4a0a0143c9d438d724ff6fd2d02.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Impacts/Sword 3.mp3"
+dest_files=["res://.godot/imported/Sword 3.mp3-39edd4a0a0143c9d438d724ff6fd2d02.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

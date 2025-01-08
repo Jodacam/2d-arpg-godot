@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6lv62cqktc16"
+path="res://.godot/imported/Cut Flesh 2.mp3-dd45a4fe4b751b57fd2f529690522de6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Impacts/Cut Flesh 2.mp3"
+dest_files=["res://.godot/imported/Cut Flesh 2.mp3-dd45a4fe4b751b57fd2f529690522de6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

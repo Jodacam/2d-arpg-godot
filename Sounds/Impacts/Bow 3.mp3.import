@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kh5al4gsx7ap"
+path="res://.godot/imported/Bow 3.mp3-1d3d3f7fe0491d93ff67240ec5fe9830.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Impacts/Bow 3.mp3"
+dest_files=["res://.godot/imported/Bow 3.mp3-1d3d3f7fe0491d93ff67240ec5fe9830.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
