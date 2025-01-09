@@ -1,6 +1,7 @@
 class_name State extends Node
 
 static var player: Player
+@export var animation_image: Texture2D  
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

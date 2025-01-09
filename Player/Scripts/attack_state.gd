@@ -2,12 +2,14 @@ class_name AttackState extends State
 
 var attacking:bool;
 @export var attack_audio :AudioStream
+@export_range(1,20,0.5) var deceleration : float = 5
 @onready var walk: WalkState = $"../Walk"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var audio_effects: AudioStreamPlayer2D = $"../../AudioEffects"
 
 ## What happends on enter state
 func enter_state() -> void:
+	if animation_image : player.sprite.texture = animation_image;
 	audio_effects.stream = attack_audio;
 	audio_effects.play();
 	player.update_animation("attack");
@@ -21,7 +23,7 @@ func exit_state() ->void:
 	pass
 	
 func update_state(_delta:float) -> State:
-	player.velocity = Vector2.ZERO;
+	player.velocity -= player.velocity * deceleration * _delta;
 	if !attacking : return walk
 	return null;
 
