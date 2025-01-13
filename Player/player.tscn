@@ -320,6 +320,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_0euby")

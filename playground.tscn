@@ -6,12 +6,20 @@
 
 [node name="Playground" type="Node2D"]
 
-[node name="FirstMap" parent="." instance=ExtResource("1_gesvc")]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_47l2y")
+autoplay = true
 
-[node name="Player" parent="." instance=ExtResource("1_angn2")]
+[node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="FirstMap" parent="Node2D" instance=ExtResource("1_gesvc")]
+z_index = 0
+
+[node name="Player" parent="Node2D" instance=ExtResource("1_angn2")]
 position = Vector2(361, 133)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Node2D/Player"]
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -19,7 +27,3 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
-
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_47l2y")
-autoplay = true
