@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjwq5783uaq7s"]
+
+[ext_resource type="Texture2D" uid="uid://gupq33mmqjkh" path="res://Props/Sprites/Grass_breaking.png" id="1_rl8wk"]
+[ext_resource type="Texture2D" uid="uid://doh4jnv78vl18" path="res://Props/Sprites/Grass_broken.png" id="2_yhplr"]
+[ext_resource type="Texture2D" uid="uid://bmq1mthwu7m3w" path="res://Props/Sprites/Grass.png" id="3_t4cpl"]
+[ext_resource type="PackedScene" uid="uid://gdwsjfntst8l" path="res://Components/Hitbox/Hitbox.tscn" id="4_2k1ep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf0jb"]
+atlas = ExtResource("1_rl8wk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onp3d"]
+atlas = ExtResource("1_rl8wk")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv5ae"]
+atlas = ExtResource("1_rl8wk")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkrhs"]
+atlas = ExtResource("1_rl8wk")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xslt5"]
+atlas = ExtResource("1_rl8wk")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6faof"]
+atlas = ExtResource("3_t4cpl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2ubx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf0jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onp3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv5ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkrhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xslt5")
+}],
+"loop": true,
+"name": &"break",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yhplr")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6faof")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2df7"]
+radius = 7.07107
+
+[node name="Grass" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h2ubx")
+autoplay = "default"
+
+[node name="Hitbox" parent="." instance=ExtResource("4_2k1ep")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_d2df7")

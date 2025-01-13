@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ifgqscdya5at"]
+[gd_scene load_steps=4 format=3 uid="uid://ifgqscdya5at"]
 
 [ext_resource type="PackedScene" uid="uid://cl1fnc1ng8bhv" path="res://Player/player.tscn" id="1_angn2"]
 [ext_resource type="PackedScene" uid="uid://ct6ujuc0s3b0w" path="res://TileMaps/FirstMap.tscn" id="1_gesvc"]
+[ext_resource type="AudioStream" uid="uid://c8vphwcwq4bnj" path="res://Music/music_calm_green_lake_serenade.wav" id="3_47l2y"]
 
 [node name="Playground" type="Node2D"]
 
@@ -18,3 +19,7 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_47l2y")
+autoplay = true
