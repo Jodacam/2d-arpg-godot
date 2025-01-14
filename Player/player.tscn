@@ -1,6 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://cl1fnc1ng8bhv"]
+[gd_scene load_steps=34 format=3 uid="uid://cl1fnc1ng8bhv"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_0euby"]
+[ext_resource type="PackedScene" uid="uid://cgusto2yocrpa" path="res://Components/Hurtbox/Hurtbox.tscn" id="2_uk2dm"]
 [ext_resource type="Texture2D" uid="uid://dkswcsbgv338k" path="res://Player/Sprites/Swashbuckler_running.png" id="2_y4kfr"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="4_ob5fa"]
 [ext_resource type="Script" path="res://Player/Scripts/idle_state.gd" id="5_edp4n"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://g1v8wfenoj7g" path="res://Player/Sprites/Swashbuckler_walk.png" id="9_fsvg8"]
 [ext_resource type="Script" path="res://Player/Scripts/running_state.gd" id="11_txq45"]
 [ext_resource type="Texture2D" uid="uid://bugqonk3urjei" path="res://Player/Sprites/Swashbuckler_melee.png" id="12_fmrxc"]
+[ext_resource type="Script" path="res://Player/interuptions.gd" id="12_p2tyu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ju45r"]
 radius = 7.0
@@ -319,6 +321,10 @@ _data = {
 "walk_up": SubResource("Animation_ec8us")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bqh8d"]
+radius = 9.0
+height = 26.0
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_mask = 17
@@ -326,7 +332,7 @@ motion_mode = 1
 script = ExtResource("1_0euby")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_y4kfr")
+texture = ExtResource("12_fmrxc")
 hframes = 4
 vframes = 4
 
@@ -363,3 +369,18 @@ animation_image = ExtResource("2_y4kfr")
 
 [node name="AudioEffects" type="AudioStreamPlayer2D" parent="."]
 max_polyphony = 4
+
+[node name="Interuptions" type="Node2D" parent="."]
+script = ExtResource("12_p2tyu")
+
+[node name="Hurtbox" parent="Interuptions" instance=ExtResource("2_uk2dm")]
+collision_mask = 256
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interuptions/Hurtbox"]
+position = Vector2(0, 13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bqh8d")
+debug_color = Color(0.956643, 5.77569e-07, 0.536835, 0.42)
+
+[connection signal="direction_changed" from="." to="Interuptions" method="_on_player_direction_changed"]

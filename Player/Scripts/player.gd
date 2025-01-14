@@ -9,7 +9,7 @@ var direction: Vector2 = Vector2.ZERO
 
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
-
+signal direction_changed(new_direction:Vector2)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	state_machine.initialize(self)
@@ -36,6 +36,7 @@ func set_direction() -> bool:
 	if new_dir == cardinal_direction:	return false;	
 	
 	cardinal_direction = new_dir;
+	direction_changed.emit(cardinal_direction);
 	return true;
 
 	

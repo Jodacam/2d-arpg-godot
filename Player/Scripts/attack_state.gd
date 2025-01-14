@@ -6,6 +6,7 @@ var attacking:bool;
 @onready var walk: WalkState = $"../Walk"
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var audio_effects: AudioStreamPlayer2D = $"../../AudioEffects"
+@onready var hurtbox: Hurtbox = $"../../Interuptions/Hurtbox"
 
 ## What happends on enter state
 func enter_state() -> void:
@@ -14,11 +15,13 @@ func enter_state() -> void:
 	audio_effects.play();
 	player.update_animation("attack");
 	attacking = true;
+	hurtbox.monitoring = true;
 	animation_player.animation_finished.connect(EndAttack)
 	pass
 	
 func exit_state() ->void:
 	attacking = false;
+	hurtbox.monitoring = false;
 	animation_player.animation_finished.disconnect(EndAttack)
 	pass
 	

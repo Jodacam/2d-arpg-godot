@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ifgqscdya5at"]
+[gd_scene load_steps=6 format=3 uid="uid://ifgqscdya5at"]
 
 [ext_resource type="PackedScene" uid="uid://cl1fnc1ng8bhv" path="res://Player/player.tscn" id="1_angn2"]
 [ext_resource type="PackedScene" uid="uid://ct6ujuc0s3b0w" path="res://TileMaps/FirstMap.tscn" id="1_gesvc"]
 [ext_resource type="AudioStream" uid="uid://c8vphwcwq4bnj" path="res://Music/music_calm_green_lake_serenade.wav" id="3_47l2y"]
+[ext_resource type="Script" path="res://Player/Scripts/player_camera.gd" id="3_rkul0"]
+[ext_resource type="PackedScene" uid="uid://cmxq6ikwb2lrv" path="res://Enemies/Slime/Slime.tscn" id="5_m1x7c"]
 
 [node name="Playground" type="Node2D"]
 
@@ -10,16 +12,13 @@
 stream = ExtResource("3_47l2y")
 autoplay = true
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="FirstMap" parent="Node2D" instance=ExtResource("1_gesvc")]
-z_index = 0
+[node name="Player" parent="YSort" instance=ExtResource("1_angn2")]
+position = Vector2(114, 63)
 
-[node name="Player" parent="Node2D" instance=ExtResource("1_angn2")]
-position = Vector2(361, 133)
-
-[node name="Camera2D" type="Camera2D" parent="Node2D/Player"]
+[node name="Camera2D" type="Camera2D" parent="YSort/Player"]
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -27,3 +26,11 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
+script = ExtResource("3_rkul0")
+
+[node name="FirstMap" parent="YSort" instance=ExtResource("1_gesvc")]
+z_index = 0
+position = Vector2(-261, -80)
+
+[node name="Slime" parent="YSort" instance=ExtResource("5_m1x7c")]
+position = Vector2(54, 78)
