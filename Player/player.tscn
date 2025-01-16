@@ -327,17 +327,19 @@ height = 26.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
+position = Vector2(0, -11)
 collision_mask = 17
 motion_mode = 1
 script = ExtResource("1_0euby")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9)
 texture = ExtResource("12_fmrxc")
 hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 11)
 shape = SubResource("CircleShape2D_ju45r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -346,6 +348,7 @@ libraries = {
 }
 
 [node name="StateMachine" type="Node2D" parent="."]
+position = Vector2(0, 9)
 script = ExtResource("4_ob5fa")
 
 [node name="Idle" type="Node2D" parent="StateMachine"]
@@ -368,14 +371,17 @@ speed = 150
 animation_image = ExtResource("2_y4kfr")
 
 [node name="AudioEffects" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 9)
 max_polyphony = 4
 
 [node name="Interuptions" type="Node2D" parent="."]
+position = Vector2(0, 9)
 script = ExtResource("12_p2tyu")
 
 [node name="Hurtbox" parent="Interuptions" instance=ExtResource("2_uk2dm")]
 collision_mask = 256
 monitoring = false
+damage = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interuptions/Hurtbox"]
 position = Vector2(0, 13)
