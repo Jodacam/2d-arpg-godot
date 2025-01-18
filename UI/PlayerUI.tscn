@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwidfq2oysvgf"]
+
+[ext_resource type="Texture2D" uid="uid://b12jqcwcwxfs3" path="res://UI/UI assets (1x).png" id="1_onjn6"]
+[ext_resource type="Texture2D" uid="uid://c3wkyfoqish2y" path="res://Player/Sprites/Swashbuckler (happy).png" id="2_eeljl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1r2h"]
+atlas = ExtResource("1_onjn6")
+region = Rect2(0, 243, 48, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm2l4"]
+atlas = ExtResource("1_onjn6")
+region = Rect2(96, 243, 48, 11)
+
+[node name="PlayerUi" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 53.0
+region_rect = Rect2(0, 0, 36, 36)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Avatar Frame" type="NinePatchRect" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -22.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_vertical = 2
+texture = ExtResource("1_onjn6")
+region_rect = Rect2(150, 6, 36, 36)
+patch_margin_left = 7
+patch_margin_top = 8
+patch_margin_right = 7
+patch_margin_bottom = 8
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Avatar" type="TextureRect" parent="NinePatchRect/Avatar Frame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -9.0
+offset_right = 8.5
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eeljl")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = -48.0
+offset_right = -50.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 11
+stretch_margin_top = 5
+stretch_margin_right = 11
+stretch_margin_bottom = 7
+texture_under = SubResource("AtlasTexture_p1r2h")
+texture_progress = SubResource("AtlasTexture_vm2l4")

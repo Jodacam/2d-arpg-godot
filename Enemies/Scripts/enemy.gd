@@ -1,7 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
 signal direction_changed(new_direction:Vector2);
-signal enemy_damaged();
+signal enemy_damaged(damage:float);
 
 var cardinal_direction: Vector2 = Vector2.DOWN
 var direction: Vector2 = Vector2.ZERO
@@ -13,6 +13,7 @@ const DIR_4 = [Vector2.RIGHT,Vector2.DOWN,Vector2.LEFT,Vector2.UP];
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var state_machine: EnemyStateMachine = $StateMachine
 @onready var enemy_die: EnemyDie = $StateMachine/EnemyDie
+@onready var enemy_stun: EnemyStun = $StateMachine/EnemyStun
 
 func _ready() -> void:
 	state_machine.initialize(self)
@@ -55,3 +56,8 @@ func anim_direction() -> String:
 	if cardinal_direction == Vector2.RIGHT : 
 		return "right";
 	return "down"
+
+
+func _on_health_pool_on_health_down(_damage: float, health: float) -> void:
+	enemy_damaged.emit(_damage)
+	pass # Replace with function body.

@@ -1,5 +1,5 @@
 class_name EnemyDie extends EnemyState
-
+@export var destroy_effect:AnimatedSprite2D
 func enter_state() ->void :
 	enemy.velocity = Vector2.ZERO
 	enemy.animation_player.play("die")

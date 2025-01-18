@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ifgqscdya5at"]
+[gd_scene load_steps=7 format=3 uid="uid://ifgqscdya5at"]
 
+[ext_resource type="PackedScene" uid="uid://dwidfq2oysvgf" path="res://UI/PlayerUI.tscn" id="1_6y7a4"]
 [ext_resource type="PackedScene" uid="uid://cl1fnc1ng8bhv" path="res://Player/player.tscn" id="1_angn2"]
 [ext_resource type="PackedScene" uid="uid://ct6ujuc0s3b0w" path="res://TileMaps/FirstMap.tscn" id="1_gesvc"]
 [ext_resource type="AudioStream" uid="uid://c8vphwcwq4bnj" path="res://Music/music_calm_green_lake_serenade.wav" id="3_47l2y"]
@@ -7,6 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://cmxq6ikwb2lrv" path="res://Enemies/Slime/Slime.tscn" id="5_m1x7c"]
 
 [node name="Playground" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerUi" parent="CanvasLayer" instance=ExtResource("1_6y7a4")]
+top_level = true
+z_index = 1
+clip_contents = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="YSort" type="Node2D" parent="."]
 y_sort_enabled = true
